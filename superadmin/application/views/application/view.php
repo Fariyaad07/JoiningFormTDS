@@ -899,23 +899,6 @@
 					}
 				});
 			</script>
-
-					let modalEl = document.getElementById('rejectReasonModal');
-					let modal = bootstrap.Modal.getOrCreateInstance(modalEl);
-					modal.show();
-				}
-
-				function confirmRejectSubmit() {
-					let reason = document.getElementById('modalRejectReasonInput').value.trim();
-					if (!reason) {
-						alert("Please enter or select a reject reason.");
-						return;
-					}
-					saveRejectReasonToHistory(reason);
-					window.location.href = "<?php echo base_url('index.php/application/changeStatus'); ?>/" 
-						+ currentRejectAppId + "/2?reason=" + encodeURIComponent(reason);
-				}
-			</script>
 			<?php $this->load->view('application/footer'); ?>
 		</body>
 	</html>									

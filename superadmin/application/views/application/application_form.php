@@ -547,154 +547,72 @@
 										
 										
 										<!-- PHOTO -->
-										
 										<div class="col-md-6">
-											
 											<label>
 												Upload Photo
 												<span class="required">*</span>
 											</label>
-											
 											<?php showFilePreview($application['application_photo'] ?? ''); ?>
-											
-											<input type="file"
-											name="photo"
-											class="form-control"
-											accept=".jpg,.jpeg,.png"
-											<?php if(empty($application['application_photo'])): ?> required <?php endif; ?>>
-											
+											<input type="file" name="photo" class="form-control" accept=".jpg,.jpeg,.png" disabled>
 										</div>
-										
-										
-										
-										<!-- QUALIFICATION CERTIFICATE -->
-										
+
 										<div class="col-md-6">
-											
 											<label>
 												Upload Qualification Certificate
 												<span class="required">*</span>
 											</label>
-											
 											<?php showFilePreview($application['application_education_qualification_certificate'] ?? ''); ?>
-											
-											<input type="file"
-											name="application_education_qualification_certificate"
-											class="form-control"
-											accept=".pdf"
-											<?php if(empty($application['application_education_qualification_certificate'])): ?> required <?php endif; ?>>
-											
+											<input type="file" name="application_education_qualification_certificate" class="form-control" accept=".pdf" disabled>
 										</div>
-										
-										
-										
-										<!-- AADHAAR FRONT -->
-										
+
 										<div class="col-md-6">
-											
 											<label>
 												Upload Aadhaar Front
 												<span class="required">*</span>
 											</label>
-											
 											<?php showFilePreview($application['application_aadhaar_front_upload'] ?? ''); ?>
-											
-											<input type="file"
-											name="aadhaar_front"
-											class="form-control"
-											accept=".pdf"
-											<?php if(empty($application['application_aadhaar_front_upload'])): ?> required <?php endif; ?>>
-											
+											<input type="file" name="aadhaar_front" class="form-control" accept=".pdf" disabled>
 										</div>
-										
-										
-										
-										<!-- AADHAAR BACK -->
-										
+
 										<div class="col-md-6">
-											
 											<label>
 												Upload Aadhaar Back
 												<span class="required">*</span>
 											</label>
-											
 											<?php showFilePreview($application['application_aadhaar_back_upload'] ?? ''); ?>
-											
-											<input type="file"
-											name="aadhaar_back"
-											class="form-control"
-											accept=".pdf"
-											<?php if(empty($application['application_aadhaar_back_upload'])): ?> required <?php endif; ?>>
-											
+											<input type="file" name="aadhaar_back" class="form-control" accept=".pdf" disabled>
 										</div>
-										
-										
-										
-										<!-- PAN -->
-										
+
 										<div class="col-md-6">
-											
 											<label>
 												Upload PAN
 												<span class="required">*</span>
 											</label>
-											
 											<?php showFilePreview($application['application_pan_upload'] ?? ''); ?>
-											
-											<input type="file"
-											name="pan_file"
-											class="form-control"
-											accept=".pdf"
-											<?php if(empty($application['application_pan_upload'])): ?> required <?php endif; ?>>
-											
+											<input type="file" name="pan_file" class="form-control" accept=".pdf" disabled>
 										</div>
-										
-										
-										
-										<!-- PASSBOOK -->
-										
+
 										<div class="col-md-6">
-											
 											<label>
 												Upload Passbook / Cancel Cheque
 											</label>
-											
 											<?php showFilePreview($application['application_bank_account_passbook_upload'] ?? ''); ?>
-											
-											<input type="file"
-											name="application_bank_account_passbook_upload"
-											class="form-control"
-											accept=".pdf">
-											
+											<input type="file" name="application_bank_account_passbook_upload" class="form-control" accept=".pdf" disabled>
 										</div>
-										
-										
-										
-										<!-- SIGNATURE -->
-										
+
 										<div class="col-md-6">
-											
 											<label>
 												Upload Signature
 											</label>
-											
 											<?php showFilePreview($application['application_sign_upload'] ?? ''); ?>
+											<input type="file" name="application_sign_upload" class="form-control" accept=".jpg,.jpeg,.png" disabled>
+												</div>
+											</div>
 											
-											<input type="file"
-											name="application_sign_upload"
-											class="form-control"
-											accept=".jpg,.jpeg,.png">
-											
-										</div>
-										
-									</div>
-							
-							<!-- BANK DETAILS -->
-							<div class="section-title">
-								Bank Details
-							</div>
-							
-							<div class="row">
+											<!-- BANK DETAILS -->
+											<div class="section-title">
+												Bank Details
+											</div>
 										
 										<div class="col-md-6">
 											<label>Bank Account Number <span class="required">*</span></label>
@@ -1315,6 +1233,9 @@
 				let fileError = false;
 
 document.querySelectorAll('input[type="file"]').forEach(function(field){
+	if(field.disabled){
+		return;
+	}
 
 	let errorDiv =
 	field.parentElement.querySelector('.error-message');
