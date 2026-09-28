@@ -724,7 +724,7 @@
 				echo "<td></td>"; // Director
 				
 				// 62
-				echo "<td>".($row['application_aadhaar_no'] ?? '')."</td>";
+				echo "<td style=\"mso-number-format:'\\@';\">".($row['application_aadhaar_no'] ?? '')."</td>";
 				
 				// 63
 				echo "<td>".formatDateExcel($row['application_submission_date'] ?? '')."</td>";

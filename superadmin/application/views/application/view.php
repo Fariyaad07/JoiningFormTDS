@@ -222,7 +222,7 @@
 							// REJECT REASON
 							// =====================
 							
-							if(!empty($row->RejectReason)){
+							if($row->Status == 2 && !empty($row->RejectReason)){
 								
 								$changeStatus .= '
 								
